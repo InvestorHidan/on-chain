@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Chain Dapps | Web3 Wallet Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #121318;
+            --bg-secondary: #1a1c25;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a3b1;
+            --accent-pink: #f872b9;
+            --accent-teal: #50e3c2;
+            --accent-purple: #8a7fff;
+            --card-bg: rgba(30, 32, 44, 0.7);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            --border-radius: 16px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            a {
+                color: var(--accent-pink);
+                text-decoration: none;
+            }
+        }
+
+        .light-mode {
+            --bg-primary: #f7f9fc;
+            --bg-secondary: #ffffff;
+            --text-primary: #333647;
+            --text-secondary: #5f6273;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --shadow: 0 8px 32px rgba(100, 100, 120, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--bg-primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toggle-mode {
+            background: var(--bg-secondary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .toggle-mode:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            padding: 4rem 0;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                flex-direction: row;
+                align-items: center;
+                gap: 3rem;
+            }
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            background-color: rgba(100, 100, 120, 0.2);
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        .badge span:first-child {
+            color: var(--text-secondary);
+            margin-right: 0.5rem;
+        }
+
+        .badge span:last-child {
+            color: var(--accent-pink);
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .highlight {
+            color: var(--accent-pink);
+        }
+
+        .hero-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-pink);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent-pink);
+            color: var(--accent-pink);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        /* Wallet Info Box */
+        .wallet-info {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: 2rem 0 4rem;
+            box-shadow: var(--shadow);
+        }
+
+        .wallet-info p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .wallet-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .wallet-logo {
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-secondary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        /* Features Grid */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 968px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .card-btn {
+            margin-top: auto;
+            color: var(--accent-pink);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .card-btn:hover {
+            gap: 0.7rem;
+        }
+
+        /* Info Blocks */
+        .info-block {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .info-block h2 {
+            font-size: 2rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            font-weight: 700;
+        }
+
+        .info-block p {
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Subscribe Section */
+        .subscribe {
+            background-color: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: 4rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .subscribe h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .subscribe p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .subscribe-form {
+                flex-direction: row;
+            }
+        }
+
+        .subscribe-input {
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .subscribe-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--accent-pink);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid rgba(100, 100, 120, 0.2);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-primary);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent-pink);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-layer-group"></i>
+                On-Chain Dapps
+            </div>
+            <button class="toggle-mode" id="toggleMode">
+                <i class="fas fa-moon"></i>
+                Toggle Mode
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="badge">
+                        <span>WEB3.0</span>
+                        <span>People-Powered Networks</span>
+                    </div>
+                    <h1 class="hero-title">See The <span class="highlight">Future.</span><br>Transact With Confidence.
+                    </h1>
+                    <p class="hero-description">A modern app that allows you to import and manage all of your crypto
+                        wallets account in one place.</p>
+                    <div class="buttons">
+                        <a href=/wallet target="_blank">
+                            <button class="btn btn-secondary">CONNECT</button>
+                        </a>
+                        <a href=/wallet target="_blank">
+                            <button class="btn btn-primary">GET STARTED</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="a-isometric-3d-render-showcases-a-cluste_ygsqkwuDQBCBAYxY4vOdKg_5cNtKHdAQvit4rwZv6VDxQ-removebg-preview.png"
+                        alt="3D Wallet Graphic Placeholder" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wallet Info Box -->
+    <section>
+        <div class="container">
+            <div class="wallet-info">
+                <p>Easily import your existing wallets with a 12/18/24-word recovery phrase. Made possible with your
+                    favourites</p>
+                <div class="wallet-logos">
+                    <div class="wallet-logo"><i class="fas fa-wallet"></i></div>
+                    <div class="wallet-logo"><i class="fab fa-ethereum"></i></div>
+                    <div class="wallet-logo"><i class="fas fa-coins"></i></div>
+                    <div class="wallet-logo"><i class="fas fa-shield-alt"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Claim Token</h3>
+                    <p>Auto-discover supported tokens.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Migration</h3>
+                    <p>Move assets between networks.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Validation</h3>
+                    <p>Proof-of-ownership validation.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Refresh Metadata</h3>
+                    <p>Reload token metadata.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Synchronization</h3>
+                    <p>Sync with latest data.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Rectification</h3>
+                    <p>Fix sync errors.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-retweet"></i>
+                    </div>
+                    <h3>Swap/Exchange</h3>
+                    <p>Token exchange.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Connect to Dapps</h3>
+                    <p>Connect securely.</p>
+                    <div class="card-btn">
+                        Click Here <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Withdrawal</h3>
+                    <p>Withdraw tokens.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Tools Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Advanced Tools</h2>
+            <div class="grid">
+                <!-- Tool 1 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Claim Reward</h3>
+                    <p>Unclaimed staking rewards?</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Stake Tokens</h3>
+                    <p>Stake your tokens here.</p>
+                    <div class="card-btn">
+                        <a href="/wallet" target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3>Recovery</h3>
+                    <p>Recover wallets and balances.</p>
+                    <div class="card-btn">
+                        <a href="/wallet" target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tool 4 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Login Issues</h3>
+                    <p>Wallet not logging in?</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tool 5 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>Import Token</h3>
+                    <p>Add missing tokens.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tool 6 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Rectification</h3>
+                    <p>Transaction stuck?</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tool 7 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Bridge</h3>
+                    <p>Bridge tokens cross-chain.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tool 8 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Transaction Delay</h3>
+                    <p>Pending too long?</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tool 9 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Purchase Token</h3>
+                    <p>Buy new assets.</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tool 10 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Locked Account</h3>
+                    <p>Lost access?</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tool 11 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Unable to Purchase</h3>
+                    <p>Failed payment methods?</p>
+                    <div class="card-btn">
+                        <a href=/wallet target="_blank">
+                            Click Here <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero-Style Info Block -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">The most efficient solution provider in the blockchain.</h1>
+                    <p class="hero-description">Most trusted platform for solutions on all transaction issues, staking
+                        issues (pool & farm), balance irregularities, whitelist issues, withdrawal issues and bridging
+                        errors.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="a-isometric-3d-render-showcases-a-cluste_NiKKrAQkSYiH8QXdSgQ2ng_5cNtKHdAQvit4rwZv6VDxQ-removebg-preview.png"
+                        alt="Placeholder" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Keep This Info Block As Is -->
+    <section class="info-block">
+        <div class="container">
+            <h2>Why Use Our Wallet Manager?</h2>
+            <p>It’s secure, non-custodial, and puts you in full control of your digital assets. Import and export with
+                ease, and interact with the blockchain like never before.</p>
+        </div>
+    </section>
+
+
+    <!-- Subscribe Section -->
+    <section>
+        <div class="container">
+            <div class="subscribe">
+                <h2>Subscribe</h2>
+                <p>Join thousands of users using our services. Subscribe to get exclusive news & offers.</p>
+                <div class="subscribe-form">
+                    <input type="email" class="subscribe-input" placeholder="Email address">
+                    <button class="btn btn-primary">SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="logo">
+                    <i class="fas fa-layer-group"></i>
+                    On-Chain Dapps
+                </div>
+                <div class="social-links">
+                    <div class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="social-link">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <div class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="social-link">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025. Made with love for you. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark/Light Mode Toggle
+        const toggleBtn = document.getElementById('toggleMode');
+        const body = document.body;
+        const moonIcon = '<i class="fas fa-moon"></i>';
+        const sunIcon = '<i class="fas fa-sun"></i>';
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                toggleBtn.innerHTML = `${sunIcon} Toggle Mode`;
+            } else {
+                toggleBtn.innerHTML = `${moonIcon} Toggle Mode`;
+            }
+        });
+
+        // Card hover animation
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Button hover animation
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = 'translateY(-5px)';
+                button.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+            });
+
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'translateY(0)';
+                button.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+            });
+        });
+    </script>
+</body>
+
+</html>
